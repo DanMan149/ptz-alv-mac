@@ -8,7 +8,7 @@ A step by step guide for beginners is in **PTZ-local-setup.pdf**.
 
 1. Install Node.js (LTS) from https://nodejs.org (or `brew install node`). Close and reopen Terminal afterwards.
 2. Download this repo (Code > Download ZIP) and unzip it somewhere easy.
-3. Double click `install.command` once. If macOS blocks it, right click the file, choose Open, then Open again. If it says permission denied, run `chmod +x *.command` in Terminal inside the folder.
+3. Double click `install.command` once. If macOS blocks it, see **Mac troubleshooting** below.
 4. Create a Twitch OAuth key, for example at https://twitchtokengenerator.com/ with the scopes `chat:read` and `chat:edit`.
 5. Double click `start-ptz.command` and leave the window open. Your browser opens http://localhost:3000 (use `localhost` exactly).
 6. Click the Settings cog, then Twitch Settings. Enter your Twitch username, channel and OAuth key. Restart `start-ptz.command`.
@@ -18,9 +18,34 @@ Prefer Terminal? `cd` into the folder, then `npm install` and `node server.js`.
 
 To stop the app, close the Terminal window (or press Ctrl+C).
 
-Mac notes: use the Option key where this guide says Alt. A trackpad has no middle button, so the middle click slot select needs a mouse. Right click is a two finger click.
+## Mac troubleshooting
 
-Stream not showing? The stream URL in Twitch Settings needs `parent=localhost`, for example `https://player.twitch.tv/?channel=alveussanctuary&parent=localhost`, and the app must be opened at `http://localhost:3000`.
+**Double clicking a `.command` file does nothing, or says it can't be opened or permission denied**
+
+1. Open Terminal.
+2. Type `chmod +x ` (with a space at the end). Do not press Enter yet.
+3. Drag `install.command` and `start-ptz.command` from Finder into the Terminal window.
+4. Press Enter, then try again.
+
+Or, from inside the folder: `chmod +x install.command start-ptz.command`
+
+**macOS says the file is from an unidentified developer or can't be verified**
+
+Right click the file, choose Open, then click Open in the popup. You only need to do this the first time.
+
+**"command not found: node" or "npm: command not found"**
+
+Node.js is not installed, or Terminal was not restarted after installing it. Install Node.js (LTS), then close and reopen Terminal.
+
+**Mac notes**
+
+- Use the Option key where this guide says Alt.
+- A trackpad has no middle button, so the middle click slot select needs a mouse.
+- Right click is a two finger click.
+
+## Stream not showing?
+
+The stream URL in Twitch Settings needs `parent=localhost`, for example `https://player.twitch.tv/?channel=alveussanctuary&parent=localhost`, and the app must be opened at `http://localhost:3000`.
 
 ## Features
 
@@ -55,4 +80,4 @@ Do not overwrite your own `config.json`, `public/cameras.json`, `public/custom-p
 
 ## Credits
 
-Originally created by Dansza. This is a community-built, open source tool for controlling the Alveus Sanctuary cameras. It is not affiliated with Twitch.
+Originally created by Dansza. This is a community-built, open source tool for controlling the Alveus Sanctuary cameras. It is not affiliated with Twitch or Alveus Sanctuary.
